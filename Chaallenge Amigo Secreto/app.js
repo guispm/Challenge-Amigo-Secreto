@@ -1,6 +1,5 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
-listaAmigos = []
-nomeDoAmigoSecreto = sortearAmigo()
+listaDeAmigos = [];
 
 function adicionarAmigo(){
     let amigo = document.querySelector("input").value;
@@ -8,28 +7,30 @@ function adicionarAmigo(){
     if (amigo == ''){
         alert ("Por favor insira um nome válido");
     } else {
-        listaAmigos.push(amigo)
-        console.log(listaAmigos)
-        exibirTextoNatela("listaAmigos",listaAmigos)
-        limpaNome()
-        return adicionarAmigo
+        listaDeAmigos.push(amigo);
+        console.log(listaDeAmigos);
+        limpaNome();
     }
 }
 
 function limpaNome(){
     amigo = document.querySelector("input");
-    amigo.value = ''
+    amigo.value = '';
 }
 
 function sortearAmigo(){
-    let indiceAleatorio = Math.floor(Math.random() * listaAmigos.length);
-    nomeSorteado = listaAmigos[indiceAleatorio]
-    console.log (`O nome sorteado foi ${nomeSorteado}`)
-    return nomeSorteado
+    let indiceAleatorio = Math.floor(Math.random() * listaDeAmigos.length);
+    nomeSorteado = listaDeAmigos[indiceAleatorio];
+    if (nomeSorteado){
+        exibirResultado(nomeSorteado);
+    }
 }
 
-function exibirTextoNatela(){
-    let campo = document.querySelector(tag, texto);
-    campo.innerHTML = texto;
+function exibirResultado (nome){
+    campo = document.getElementById("resultado");
+    campo.innerHTML = `O amigo secreto sorteado é: ${nome}`;
 }
 
+// function exibirListaDeNomes (){
+//     campo = document.getElementById("listaAmigos");
+// } -> Ainda em produção essa função

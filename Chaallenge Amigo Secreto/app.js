@@ -1,5 +1,6 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 listaDeAmigos = [];
+let cont = 0;
 
 function adicionarAmigo(){
     let amigo = document.querySelector("input").value;
@@ -8,6 +9,7 @@ function adicionarAmigo(){
         alert ("Por favor insira um nome válido");
     } else {
         listaDeAmigos.push(amigo);
+        exibirListaDeNomes();
         console.log(listaDeAmigos);
         limpaNome();
     }
@@ -29,8 +31,10 @@ function sortearAmigo(){
 function exibirResultado (nome){
     campo = document.getElementById("resultado");
     campo.innerHTML = `O amigo secreto sorteado é: ${nome}`;
+    listaDeAmigos = [];
+    exibirListaDeNomes();
 }
 
-// function exibirListaDeNomes (){
-//     campo = document.getElementById("listaAmigos");
-// } -> Ainda em produção essa função
+function exibirListaDeNomes(){
+    document.getElementById("listaAmigos").innerHTML = listaDeAmigos.map(item=>`<li>${item}<li>`).join('');
+} 
